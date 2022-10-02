@@ -20,7 +20,7 @@ services:
     env_file:
       - .env
     volumes:
-      - /media/torrents/:/media/torrents/
+      - /media/torrents/:/data/torrents/
     networks:
       - default
       - selfhost
