@@ -10,12 +10,12 @@ services:
       - BASE_URL=$BASE_URL
       - EMAIL=$EMAIL
     volumes:
-      - ./nginx.conf:/web/qbittorent.conf
+      - ./nginx.conf:/web/qbittorrent.conf
       - sites-availables:/sites-availables
       - certs:/etc/letsencrypt
 
-  qbittorent:
-    build: qbittorent/
+  qbittorrent:
+    build: qbittorrent/
     restart: always
     env_file:
       - .env
