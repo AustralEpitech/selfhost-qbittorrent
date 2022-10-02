@@ -8,6 +8,6 @@ if [ -n "$PUID" ]; then
     usermod -u "$PUID" app
 fi
 
-chown -R app:app /app/
+chown -R app:app /app/ /data/torrents/
 
 exec su app <<< "$@"

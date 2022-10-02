@@ -6,7 +6,8 @@ RUN apt-get update && apt-get install -y \
     apt-get clean &&                     \
     rm -rf /var/lib/apt/
 COPY docker-entrypoint.sh /usr/local/bin/
+VOLUME /data/torrents/
 RUN useradd -m app
-COPY qBittorrent.conf /home/app/.config/qBittorrent/
+COPY --chown=app:app qBittorrent.conf /home/app/.config/qBittorrent/
 ENTRYPOINT ["docker-entrypoint.sh"]
-CMD ["qbittorrent-nox", "--configuration=/etc/qBittorrent/"]
+CMD ["qbittorrent-nox"]
