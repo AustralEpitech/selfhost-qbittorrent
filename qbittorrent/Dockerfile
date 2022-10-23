@@ -9,5 +9,6 @@ COPY docker-entrypoint.sh /usr/local/bin/
 VOLUME /data/torrents/
 RUN useradd -m app
 COPY --chown=app:app qBittorrent.conf /home/app/.config/qBittorrent/
+EXPOSE 8080
 ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["qbittorrent-nox"]

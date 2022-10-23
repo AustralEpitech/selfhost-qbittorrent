@@ -10,4 +10,4 @@ fi
 
 chown -R app:app /app/ /data/torrents/
 
-exec su app <<< "$@"
+su app -c "$*"

@@ -3,7 +3,7 @@ version: "3.7"
 
 services:
   install_site:
-    build: install_site/
+    build: install_site
     ports:
       - "80:80"
     environment:
@@ -11,16 +11,16 @@ services:
       - EMAIL=$EMAIL
     volumes:
       - ./nginx.conf:/web/qbittorrent.conf
-      - sites-availables:/sites-availables
-      - certs:/etc/letsencrypt
+      - sites-availables:/sites-availables/
+      - certs:/etc/letsencrypt/
 
   qbittorrent:
-    build: qbittorrent/
+    build: qbittorrent
     restart: always
     env_file:
       - .env
     volumes:
-      - /media/torrents/:/data/torrents/
+      - $MEDIA_PATH/torrents/:/data/torrents/
     networks:
       - default
       - selfhost
