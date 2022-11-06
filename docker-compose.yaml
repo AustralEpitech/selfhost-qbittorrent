@@ -16,7 +16,7 @@ services:
 
   qbittorrent:
     build: qbittorrent
-    restart: always
+    restart: unless_stopped
     env_file:
       - .env
     volumes:
